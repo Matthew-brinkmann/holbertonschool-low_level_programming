@@ -1,0 +1,5 @@
+CPP - to preprocess the file : cpp [original_file] > [output_file]
+GCC - to compile a file
+    : gcc [original_file] - create a file names [original_file.exe]
+    : gcc -c(this skips the linker) [original_file] > [outputfile][.extensions]
+    : gcc -S(generate assembly code) [origial_file] (THIS WILL OUTPUT WITH A .s EXTENSIONS)
