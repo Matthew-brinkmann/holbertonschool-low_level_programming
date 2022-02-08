@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main - short description
+ * print_alphabet - short description
  *
  * Description: long description
  *
