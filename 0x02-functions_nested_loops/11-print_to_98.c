@@ -32,7 +32,7 @@ void print_to_98(int n)
 		{
 			_putchar(((i * neg) / 100) + '0');
 			_putchar((((i * neg) / 10) % 10) + '0');
-			_putchar(((i * neg) - ((i * neg) / 10) * 10) + '0');
+			_putchar(((i * neg) % 10) + '0');
 		}
 		else if ((i > -10) && (i < 10))
 			_putchar(((i * neg) % 10) + '0');
