@@ -2,7 +2,7 @@
 
 /**
  * _islower - short description
- * @c - the inputting character to test
+ * @c: the inputting character to test
  *
  * Description: long description
  *
