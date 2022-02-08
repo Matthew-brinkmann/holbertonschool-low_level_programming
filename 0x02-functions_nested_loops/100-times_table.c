@@ -2,6 +2,7 @@
 
 /**
  * print_times_table - short description
+ * @n: the times tab;es we want printed
  *
  * Description: long description
  *
@@ -11,7 +12,6 @@ void print_times_table(int n)
 {
 	int a;
 	int b;
-	/* x = total number*/
 	int x;
 
 	if (n > 0 && n < 15)
@@ -22,9 +22,8 @@ void print_times_table(int n)
 			{
 				x = a * b;
 				if (a == 0)
-				{
 					_putchar((x) + '0');
-				} else if (x < 10)
+				else if (x < 10)
 				{
 					_putchar(',');
 					_putchar(' ');
@@ -49,6 +48,5 @@ void print_times_table(int n)
 			}
 			_putchar('\n');
 		}
-	} else
-		_putchar('\n');
+	}
 }
