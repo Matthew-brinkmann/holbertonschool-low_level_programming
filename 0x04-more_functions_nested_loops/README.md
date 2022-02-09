@@ -1,4 +1,7 @@
 # README FILE FOR PROJECT
 ##By Matthew Brinkmann
 
-Will add more if neeeded.
+git will ignore
+- emacs buffer files
+- local (local_*) files
+- local testing files (#-main.c)
