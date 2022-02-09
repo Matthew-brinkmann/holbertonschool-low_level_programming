@@ -1,5 +1,5 @@
 #ifndef MAIN_H
-1;95;0c#define MAIN_H
+#define MAIN_H
 
 #include <stdio.h>
 
