@@ -11,6 +11,4 @@ int main(void)
 {
 	if (positive_or_negative(0) == 0)
 		printf("0 is zero");
-	else
-		printf("incorect output");
 }
