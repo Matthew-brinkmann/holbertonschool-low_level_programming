@@ -15,21 +15,21 @@ int main(void)
 	/* count will increment each time a umber is added */
 	double count = 0;
 
-	printf("%.0f, %.0f,  ", a, b);
+	printf("%.0f, %.0f, ", a, b);
 	count = 2;
 	while (count < 50)
-		{
-			a = a + b;
-			count ++;
-			printf("%.0f", a);
-			if (count < 50)
-				printf(", ");
-			b = a + b;
-			count ++;
-			printf("%.0f", b);
-			if (count < 50)
-				printf(", ");
-		}
+	{
+		a = a + b;
+		count++;
+		printf("%.0f", a);
+		if (count < 50)
+			printf(", ");
+		b = a + b;
+		count++;
+		printf("%.0f", b);
+		if (count < 50)
+			printf(", ");
+	}
 	printf("\n");
 	return (0);
 }
