@@ -11,6 +11,5 @@ int main(void)
 {
 	int x = positive_or_negative(0);
 
-	if (x == 0)
-		printf("0 is zero");
+	return (x);
 }
