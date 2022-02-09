@@ -7,25 +7,25 @@
  *
  * Return: add in what is supposed to be returned if anything
  */
-int main(void)
+void main(void)
 {
-	double a = 1;
-	double b = 2;
+	long long a = 1;
+	long long b = 2;
 	/* count will increment each time a umber is added */
-	double count = 0;
+	long long count = 0;
 
-	printf("%.0lf, %.0lf,  ", a, b);
+	printf("%lld, %lld,  ", a, b);
 	count = 2;
 	while (count < 50)
 		{
 			a = a + b;
 			count ++;
-			printf("%.0lf", a);
+			printf("%lld", a);
 			if (count < 50)
 				printf(", ");
 			b = a + b;
 			count ++;
-			printf("%.0lf", b);
+			printf("%lld", b);
 			if (count < 50)
 				printf(", ");
 		}
