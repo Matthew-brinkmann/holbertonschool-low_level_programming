@@ -13,7 +13,7 @@ void more_numbers(void)
 	int x = 0;
 	int modifier = 1;
 
-	while (c <= 10)
+	while (c < 10)
 	{
 		while (x <= 14)
 		{
@@ -25,7 +25,6 @@ void more_numbers(void)
 			x++;
 		}
 		x = 0;
-		modifier = 1;
 		_putchar('\n');
 		c++;
 	}
