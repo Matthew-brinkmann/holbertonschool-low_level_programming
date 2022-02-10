@@ -24,6 +24,7 @@ void more_numbers(void)
 				_putchar((x % 10) + '0');
 			x++;
 		}
+		modifier = 1;
 		x = 0;
 		_putchar('\n');
 		c++;
