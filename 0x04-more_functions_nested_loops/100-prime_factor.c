@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 /**
  * find_prime - will find if the number entered is a prime number or not
  * @n: the inputted number
@@ -52,20 +51,37 @@ int main(void)
 	long highestYet = 0;
 	long testInc = 1;
 
+	printf("start checking\n");
 	while (testInc < lastTested)
 	{
 		if (x % testInc == 0)
 		{
+			printf("checking number\n");
 			lastTested = x / testInc;
 			highestYet = find_prime(testInc);
 			if (highestYet > highest)
 				highest = highestYet;
+/*
+* these next lines will check to see if the top
+* factor is a prime, and will break out of the
+* loop as soon as it finds the first top
+* factor prime
+*/
 			highestYet = find_prime(x / testInc);
 			if (highestYet > highest)
+			{
 				highest = highestYet;
+				break;
+			}
 		}
-		testInc = testInc + 1;
+		if (testInc < 3)
+		{
+			printf("testing 1 or 2\n");
+			testInc = testInc + 1;
+		else
+			testInc = testInc + 2;
 	}
 	printf("%li\n", highest);
+	printf("TOTAL COUNT OF LOOPS IN PROGRAM: %li\n", totalCount);
 	return (0);
 }
