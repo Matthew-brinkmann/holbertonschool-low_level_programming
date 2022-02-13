@@ -5,11 +5,9 @@
  *
  * Description: This is a bit inefficient however it works, this function
  * just checks the number against every number of half its value
- * to see if the modulos (modolus)? is 0? each prime number is written
- * to the global variable highest, if it is bigger than the variable
- * already stored
+ * to see if the modulos (modolus)? is 0? each prime number is returned
  *
- * Return: will not return anything.
+ * Return: will return the prime number if it is one, otherwise return 0
  */
 long find_prime(long n)
 {
@@ -35,11 +33,13 @@ long find_prime(long n)
  * main - will find the factor of the number selected
  *
  * Description: Numbers are passed through this functions, and if
- * the number has factors (x * y = n) then the factors are passed to
+ * the number has factors (x % testNumber == 0) then the factors are passed to
  * the find_prime function to see if it is a prime number
- * each factor is tested in pairs, and the highest paired number
- * is stored so it won't bother checking numbers it
- * has already tested.
+ * each factor is tested in pairs, so lower number (number tested) and
+ * higher number (x / number tested)
+ * and the highest paired number is stored so it won't bother checking
+ * numbers it has already tested. the first higher number to be prime
+ * is then set as the highest and the loop breaks.
  *
  * Return: will return (0);
  */
@@ -74,6 +74,11 @@ int main(void)
 				break;
 			}
 		}
+/*
+ * these if statements will start the incrementation
+ * by two after the number 2 is checked.
+ */
+
 		if (testInc < 3)
 		{
 			printf("testing 1 or 2\n");
