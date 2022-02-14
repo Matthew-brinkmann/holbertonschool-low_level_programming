@@ -31,10 +31,17 @@ void puts_half(char *str)
 	int counter = _strlen(str);
 	int i = 0;
 
-	while (i <= counter / 2)
+	if (counter % 2 == 0)
 	{
-		i++;
-	}
+		while (i < counter / 2)
+		{
+			i++;
+		}
+	} else if (counter % 2 != 0)
+		while (i < (counter - 1) /2)
+		{
+			i++;
+		}
 	while (i < counter)
 		{
 			_putchar(str[i]);
