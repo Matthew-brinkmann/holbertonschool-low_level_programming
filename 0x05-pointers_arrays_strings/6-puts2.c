@@ -28,17 +28,16 @@ int _strlen(char *s)
  */
 void puts2(char *str)
 {
+	char newString = *str;
 	int counter;
 	int i = 0;
+
 	counter = _strlen(str);
-	while (i < counter)
+	while (i >= 0 && i < counter)
 	{
-		while (*str != '\0')
-		{
-			_putchar(*str);
-			str = str + 2;
-		}
-		i++;
+		newString = *(str + i);
+		_putchar(newString);
+		i = i + 2;
 	}
 	_putchar('\n');
 }
