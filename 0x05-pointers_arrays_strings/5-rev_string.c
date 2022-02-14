@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * rev_string - reverse a string in the memory
@@ -15,7 +14,6 @@ void rev_string(char *s)
 	int counter = 0;
 	int i = 0;
 
-	printf("start of my function");
 	while (string != '\0')
 	{
 		counter++;
@@ -31,5 +29,4 @@ void rev_string(char *s)
 		counter--;
 		i++;
 	}
-	printf("end of my function");
 }
