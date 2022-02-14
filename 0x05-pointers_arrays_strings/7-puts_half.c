@@ -29,24 +29,19 @@ int _strlen(char *s)
 void puts_half(char *str)
 {
 	int counter = _strlen(str);
-	int i = 0;
+	int i = 0, n;
 
 	if (counter % 2 == 0)
 	{
-		while (i < counter / 2)
-		{
-			i++;
-		}
+		n = counter / 2;
 	} else if (counter % 2 != 0)
 	{
-		while (i < (counter - 1) / 2)
-		{
-			i++;
-		}
+		n = (counter - 1) / 2;
 	}
-	while (i < counter)
+	while (i <= counter)
 	{
-		_putchar(str[i]);
+		if (i > (counter - n))
+			_putchar(str[i]);
 		i++;
 	}
 	_putchar('\n');
