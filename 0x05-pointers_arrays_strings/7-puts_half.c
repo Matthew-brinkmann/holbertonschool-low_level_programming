@@ -34,14 +34,14 @@ void puts_half(char *str)
 	if (counter % 2 == 0)
 	{
 		n = counter / 2;
-	} else if (counter % 2 != 0)
+	} else
 	{
 		n = (counter - 1) / 2;
 	}
 	while (i <= counter)
 	{
 		if (i > (counter - n))
-			_putchar(str[i]);
+			_putchar(str[i - 1]);
 		i++;
 	}
 	_putchar('\n');
