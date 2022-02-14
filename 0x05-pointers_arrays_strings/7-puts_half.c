@@ -38,14 +38,16 @@ void puts_half(char *str)
 			i++;
 		}
 	} else if (counter % 2 != 0)
-		while (i < (counter - 1) /2)
+	{
+		while (i < (counter - 1) / 2)
 		{
 			i++;
 		}
+	}
 	while (i < counter)
-		{
-			_putchar(str[i]);
-			i++;
-		}
+	{
+		_putchar(str[i]);
+		i++;
+	}
 	_putchar('\n');
 }
