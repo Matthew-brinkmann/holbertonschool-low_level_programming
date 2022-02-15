@@ -10,18 +10,18 @@
 int _atoi(char *s)
 {
 	int value = 0;
+	int numOfNeg = 0;
 	int posNeg = 1;
 
 	while (*s != '\0')
 	{
 		if (*s >= '0' && *s <= '9')
 		{
-			if (*(s - 1) == '-')
-			{
-				posNeg = -1;
-				break;
-			}
 			break;
+		}
+		if (*s  == '-')
+		{
+			numOfNeg++;
 		}
 		s++;
 	}
@@ -31,5 +31,7 @@ int _atoi(char *s)
 		value += (*s - '0');
 		s++;
 	}
+	if (numOfNeg % 2 != 0)
+		posNeg = -1;
 	return (value * posNeg);
 }
