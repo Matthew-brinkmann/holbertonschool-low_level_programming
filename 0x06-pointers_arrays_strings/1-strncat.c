@@ -38,11 +38,11 @@ char *_strncat(char *dest, char *src, int n)
 	while (src[i] < src[n])
 	{
 		if (src[i] == '\0')
-			break
+			break;
 		dest[startCopy] = src[i];
 		i++;
 		startCopy++;
 	}
-	des[startCopy + 1] = '\0';
+	dest[startCopy + 1] = '\0';
 	return (dest);
 }
