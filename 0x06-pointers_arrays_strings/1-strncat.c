@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * int _strlen(char *s) - add src to the end of dest
+ * _strlen - will return the length of the string passed through
  * @s: the string we want to count.
  * Description: long description
  *
@@ -20,7 +20,8 @@ int _strlen(char *s)
 	return (counter);
 }
 /**
- * _strncat(char *dest, char *src, int n) - add src to the end of dest until n.
+ * _strncat - add src
+ * to the end of dest until n.
  * @dest: will be the string that is added too
  * @src: the string to copy
  * @n: the amount of src to copy
