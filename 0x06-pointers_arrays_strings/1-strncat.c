@@ -35,10 +35,8 @@ char *_strncat(char *dest, char *src, int n)
 	int startCopy = _strlen(dest);
 	int i = 0;
 
-	while (src[i] < src[n])
+	while (src[i] != '\0' && i < n)
 	{
-		if (src[i] == '\0')
-			break;
 		dest[startCopy] = src[i];
 		i++;
 		startCopy++;
