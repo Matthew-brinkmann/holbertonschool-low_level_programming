@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
 * isSeperator - check if previous charater is a seperator..
 * @s: the characters to check if seperator
@@ -10,8 +10,8 @@
 int isSeperator(char *s)
 {
 	int i = 0;
-	int sep[13] = {',', ';', '.', '!', '?', '\"', '(', ')', '{', '}',
-		       '\n', ' ', '\t'};
+	int sep[13] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
+
 	while (i < 13)
 	{
 		if (*s == sep[i])
@@ -34,11 +34,11 @@ char *cap_string(char *s)
 
 	while (s[i] != '\0')
 	{
-		if (s[i] > 96 && s[i] < 123)
+		if (isSeperator(&s[i]) == 1)
 		{
-			a = i - 1;
-			if (isSeperator(&s[a]) == 1)
-				s[i] = s[i] - 32;
+			a = i + 1;
+			if (s[a] > 96 && s[a] < 123)
+				s[a] = s[a] - 32;
 		}
 		i++;
 	}
