@@ -59,9 +59,9 @@ int is_full_word(char *start, char *test)
 char *_strstr(char *haystack, char *needle)
 {
 	unsigned int sCount = 0;
-	int test = 0;
-	int aCount = 0;
-	unsigned int length = _strlen(accept);
+	unsigned int test = 0;
+	unsigned int aCount = 0;
+	unsigned int length = _strlen(needle);
 
 	while (haystack[sCount] != '\0')
 	{
@@ -78,7 +78,7 @@ char *_strstr(char *haystack, char *needle)
 	{
 		while (aCount < length)
 		{
-			if (accept[aCount] == haystack[sCount])
+			if (needle[aCount] == haystack[sCount])
 				return (&haystack[sCount]);
 			aCount++;
 		}
