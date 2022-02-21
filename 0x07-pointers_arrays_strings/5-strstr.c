@@ -64,7 +64,7 @@ char *_strstr(char *haystack, char *needle)
 	unsigned int length = _strlen(needle);
 
 	if (*needle == '\0')
-		return(haystack);
+		return (haystack);
 	while (haystack[sCount] != '\0')
 	{
 		if (needle[0] == haystack[sCount])
