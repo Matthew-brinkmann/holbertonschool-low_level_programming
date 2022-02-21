@@ -1,6 +1,28 @@
 #include "main.h"
 
 /**
+ * _strlen - will return the length of the string passed through
+ * @s: the string we need to count
+ * Description: my initial code did not include this part
+ * but i found an error (if the word i an looking for is not
+ * in the string), and was trying to use this to resolve error.
+ *
+ * Return: the length of the string
+ */
+int _strlen(char *s)
+{
+	char string = *s;
+	int counter = 0;
+
+	while (string != '\0')
+	{
+		counter++;
+		string = *(s + counter);
+	}
+	return (counter);
+}
+
+/**
  * is_full_word - will see if matching full word
  * @start: the starting memory location to look from
  * @test: the characters in the momeory we are testing
@@ -11,8 +33,9 @@
 int is_full_word(char *start, char *test)
 {
 	int x = 0;
+	int length = _strlen(test);
 
-	while (test[x] != '\0')
+	while (x < length)
 	{
 		if (test[x] == start[x])
 		{
@@ -37,6 +60,8 @@ char *_strstr(char *haystack, char *needle)
 {
 	unsigned int sCount = 0;
 	int test = 0;
+	int aCount = 0;
+	unsigned int length = _strlen(accept);
 
 	while (haystack[sCount] != '\0')
 	{
@@ -48,5 +73,18 @@ char *_strstr(char *haystack, char *needle)
 		}
 		sCount++;
 	}
+
+	while (haystack[sCount] != '\0')
+	{
+		while (aCount < length)
+		{
+			if (accept[aCount] == haystack[sCount])
+				return (&haystack[sCount]);
+			aCount++;
+		}
+		aCount = 0;
+		sCount++;
+	}
+
 	return (0);
 }
