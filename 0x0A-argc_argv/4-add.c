@@ -9,14 +9,18 @@
  *
  * Return: will return 1 if upper case or 0 if otherwise
  */
-int _isdigit(int c)
+int _isdigit(char* c)
 {
 	int x;
 
-	if (c >= 48 && c <= 57)
-		x = 1;
-	else
-		x = 0;
+	while (*c != '\0')
+	{
+		if (*c >= 48 && *c <= 57)
+			x = 1;
+		else
+			return (0);
+		c++;
+	}
 	return (x);
 }
 
@@ -39,7 +43,7 @@ int main(int argc, char *argv[])
 	}
 	while (counter < argc)
 	{
-		if (_isdigit(*argv[counter]) == 1)
+		if (_isdigit(argv[counter]) == 1)
 		{
 			num1 = atoi(argv[counter]);
 			answer = answer + num1;
