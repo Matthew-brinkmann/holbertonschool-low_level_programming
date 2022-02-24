@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "main.h"
-
+#include <stdlib.h>
 /**
  * main - short description
  * @argc: the number of arguments passed into function
@@ -11,12 +11,17 @@
  */
 int main(int argc, char *argv[])
 {
-	int i = 0;
+	int answer, num1, num2;
 
-	while (i < argc)
+	if (argc != 3)
 	{
-		printf("%s\n", argv[i]);
-		i++;
+		printf("Error\n");
+		return (1);
 	}
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[2]);
+	answer = num1 * num2;
+	printf("%d\n", answer);
+
 	return (0);
 }

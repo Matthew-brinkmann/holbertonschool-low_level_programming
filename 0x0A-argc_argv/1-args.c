@@ -3,7 +3,8 @@
 
 /**
  * main - short description
- *
+ * @argc: the number of arguments passed into function
+ * @argv: the array containing the arguments
  * Description: long description
  *
  * Return: add in what is supposed to be returned if anything
