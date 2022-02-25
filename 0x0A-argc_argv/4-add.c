@@ -9,7 +9,7 @@
  *
  * Return: will return 1 if upper case or 0 if otherwise
  */
-int _isdigit(char* c)
+int _isdigit(char *c)
 {
 	int x;
 
