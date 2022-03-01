@@ -99,7 +99,16 @@ char *str_concat(char *s1, char *s2)
 	Con = malloc(lenS1 + lenS2 + 1);
 	if (Con == NULL)
 		return (0);
-	_strncpy(Con, s1, lenS1);
-	_strncat(Con, s2, lenS2);
+
+	if (s1 != NULL && s2 != NULL)
+	{
+		_strncpy(Con, s1, lenS1);
+		_strncat(Con, s2, lenS2);
+	}
+	else if (s1 != NULL && s2 == NULL)
+		_strncpy(Con, s1, lenS1 + 1);
+	else if (s1 == NULL && s2 != NULL)
+		_strncpy(Con, s2, lenS2 + 1);
+
 	return (Con);
 }
