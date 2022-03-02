@@ -64,7 +64,7 @@ char *argstostr(int ac, char **av)
 
 	while (i < ac)
 	{
-		space = space + _strlen(av[i]) + 2;
+		space = space + _strlen(av[i]) + 1;
 		i++;
 	}
 
