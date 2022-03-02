@@ -68,7 +68,7 @@ char *argstostr(int ac, char **av)
 		i++;
 	}
 
-	newString = malloc(space * sizeof(char));
+	newString = malloc(space * sizeof(char) + 1);
 	if (newString == NULL)
 		return (NULL);
 
