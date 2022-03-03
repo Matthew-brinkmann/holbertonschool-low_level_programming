@@ -11,7 +11,8 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *array;
+	void *array;
+	int *fill;
 	unsigned int counter = 0;
 
 	if (size == 0 || nmemb == 0)
@@ -21,9 +22,10 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (array == NULL)
 		return (NULL);
 
+	fill = array;
 	while (counter < size)
 	{
-		array[counter] = 0;
+		fill[counter] = 0;
 		counter++;
 	}
 
