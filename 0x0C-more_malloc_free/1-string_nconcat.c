@@ -58,7 +58,7 @@ char *_strncpy(char *dest, char *src, int n)
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int lenS1, lenS2;
+	unsigned int lenS1, lenS2, lenTotal, i = 0, j = 0;
 	char *Con;
 
 	if (s1 == NULL)
@@ -72,14 +72,22 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	if (lenS2 > n)
 		lenS2 = n;
-
-	Con = malloc((lenS1 + lenS2) * sizeof(*Con) + 1);
+	lenTotal = lenS1 + lenS2;
+	Con = malloc(lenTotal * sizeof(*Con) + 1);
 	if (Con == NULL)
 		return (NULL);
-
-	_strncpy(Con, s1, lenS1);
-	_strncpy(Con + lenS1, s2, lenS2);
-	Con[lenS1 + lenS2 + 1] = '\0';
+	while (i < lenS1)
+	{
+		Con[i] = s1[i];
+		i++;
+	}
+	while (i < lenTotal)
+	{
+		Con[i] = s2[j];
+		i++;
+		j++;
+	}
+	Con[i] = '\0';
 
 	return (Con);
 }
