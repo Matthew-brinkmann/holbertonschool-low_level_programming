@@ -53,7 +53,12 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		return (NULL);
 	}
 	if (ptr == NULL)
+	{
+		p = malloc(new_size)
+			if (new == NULL)
+				return (NULL);
 		return (p);
+	}
 	write = p;
 	copy = ptr;
 
