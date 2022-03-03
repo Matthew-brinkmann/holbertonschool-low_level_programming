@@ -69,12 +69,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	lenS1 = _strlen(s1);
 	lenS2 = _strlen(s2);
 
-	if (lenS2 >= n)
+	if (lenS2 > n)
 		lenS2 = n;
 
-	Con = malloc(lenS1 + lenS2 + 1);
+	Con = malloc((lenS1 + lenS2) * sizeof(*Con) + 1);
 	if (Con == NULL)
-		return (0);
+		return (NULL);
 
 	_strncpy(Con, s1, lenS1);
 	_strncpy(Con + lenS1, s2, lenS2);
