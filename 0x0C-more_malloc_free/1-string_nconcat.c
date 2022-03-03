@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include "main.h"
-
+#include <stdio.h>
 /**
  * _strlen - will return the length of the string passed through
  * @s: the string we need to count
@@ -76,8 +76,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (Con == NULL)
 		return (NULL);
 
+	printf("%d\n", lenS1);
+	printf("%d\n", lenS2);
 	_strncpy(Con, s1, lenS1);
-	_strncpy(Con + lenS1, s2, lenS2);
+	_strncpy(Con + lenS1, s2, lenS2 + 1);
 
 	return (Con);
 }
