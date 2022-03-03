@@ -62,12 +62,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *Con;
 
 	if (s1 == NULL)
-		s1 = "";
+		lenS1 = 0;
+	else
+		lenS1 = _strlen(s1);
 	if (s2 == NULL)
-		s2 = "";
-
-	lenS1 = _strlen(s1);
-	lenS2 = _strlen(s2);
+		lenS2 = 0;
+	else
+		lenS2 = _strlen(s2);
 
 	if (lenS2 > n)
 		lenS2 = n;
@@ -76,10 +77,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (Con == NULL)
 		return (NULL);
 
-	printf("%d\n", lenS1);
-	printf("%d\n", lenS2);
 	_strncpy(Con, s1, lenS1);
-	_strncpy(Con + lenS1, s2, lenS2 + 1);
+	_strncpy(Con + lenS1, s2, lenS2);
+	Con[lenS1 + lenS2 + 1] = '\0';
 
 	return (Con);
 }
