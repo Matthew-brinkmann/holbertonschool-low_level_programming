@@ -2,28 +2,26 @@
 #include <stdlib.h>
 
 /**
- * _strncpy - a string to copy to a saved buffer
- * @dest: buffer for string
- * @src: the string we are going to copy
- * @n: the number of characters to copy
+ * _memcpy - short description
+ * @src: the memory source we want to copy
+ * @dest: the location we want to store the memory
+ * @n: the number of bytes to copy.
  * Description: long description
  *
- * Return: the pointer to dest
+ * Return: returns pointer to dest
  */
-char *_strncpy(char *dest, char *src, int n)
+void *_memcpy(void *dest, void *src, unsigned int n)
 {
-	int i = 0;
+	unsigned int counter = 0;
+	char *fillDest = dest;
+	char *fillSrc = src;
 
-	while ((i < n) && (src[i] != '\0'))
+	while (counter < n)
 	{
-		dest[i] = src[i];
-		i++;
+		fillDest[counter] = fillSrc[counter];
+		counter++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
+
 	return (dest);
 }
 
@@ -64,9 +62,9 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	copy = ptr;
 
 	if (new_size > old_size)
-		_strncpy(write, copy, old_size);
+		_memcpy(write, copy, old_size);
 	else
-		_strncpy(write, copy, new_size);
+		_memcpy(write, copy, new_size);
 
 	free(ptr);
 	return (p);
