@@ -12,43 +12,22 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *array;
-	char *pchar;
-	int *pint;
-	long *plong;
+	char *fill;
 	unsigned int counter = 0;
 
 	if (size == 0 || nmemb == 0)
 		return (NULL);
+
 	array = malloc(nmemb * size);
 	if (array == NULL)
 		return (NULL);
-	if (size == 1)
+
+	fill = array;
+	while (counter < nmemb * size)
 	{
-		pchar = array;
-		while (counter < nmemb)
-		{
-			pchar[counter] = 0;
-			counter++;
-		}
-	}
-	if (size == 4)
-	{
-		pint = array;
-		while (counter < nmemb)
-		{
-			pint[counter] = 0;
-			counter++;
-		}
-	}
-	if (size == 8)
-	{
-		plong = array;
-		while (counter < nmemb)
-		{
-			plong[counter] = 0;
-			counter++;
-		}
-	}
+		fill[counter] = 0;
+		counter++;
+`	}
 
 	return (array);
 }
