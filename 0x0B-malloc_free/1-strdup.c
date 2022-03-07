@@ -2,26 +2,21 @@
 #include "main.h"
 
 /**
- * _strncpy - a string to copy to a saved buffer
+ * _strcpy - a string to copy to a saved buffer
  * @dest: buffer for string
  * @src: the string we are going to copy
- * @n: the number of characters to copy
  * Description: long description
  *
  * Return: the pointer to dest
  */
-char *_strncpy(char *dest, char *src, int n)
+char *_strcpy(char *dest, char *src)
 {
+	int counter = _strlen(src);
 	int i = 0;
 
-	while ((i < n) && (src[i] != '\0'))
+	while (i <= counter)
 	{
 		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
 		i++;
 	}
 	return (dest);
@@ -60,11 +55,11 @@ char *_strdup(char *str)
 	char *cpy;
 
 	if (str == NULL)
-		return (0);
+		return (NULL);
 	len = _strlen(str);
 	cpy = malloc(len + 1);
 	if (cpy == NULL)
-		return (0);
-	_strncpy(cpy, str, len);
+		return (NULL);
+	_strcpy(cpy, str);
 	return (cpy);
 }
