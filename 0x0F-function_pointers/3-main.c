@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "3-calc.h"
 #include <stdio.h>
+#include <string.h>
 
 /**
  * main - get info and pass it on
@@ -20,6 +21,11 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
+	if (strlen(argv[2]) != 1)
+	{
+		printf("Error\n");
+		exit(99);
+	}
 	calc = get_op_func(argv[2]);
 	if (calc == NULL)
 	{
