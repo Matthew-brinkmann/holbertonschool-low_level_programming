@@ -86,7 +86,7 @@ void print_all(const char * const format, ...)
 	char *seperator = "";
 
 	va_start(print, format);
-	while ((*(format + i)) != '\0')
+	while ((*(format + i)) != '\0' && format != NULL)
 	{
 		count = 0;
 		while (selector[count].symbol != NULL)
