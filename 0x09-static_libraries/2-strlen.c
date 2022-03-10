@@ -1,5 +1,5 @@
 #include "main.h"
-#define NULL  0
+#include <stdlib.h>
 
 /**
  * _strlen - will return the length of the string passed through
@@ -24,5 +24,5 @@ int _strlen(char *s)
 		return (counter);
 	}
 	else
-		return (0);
+		return (NULL);
 }
