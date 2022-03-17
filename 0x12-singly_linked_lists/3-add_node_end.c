@@ -38,12 +38,10 @@ list_t *add_node_end(list_t **head, const char *str)
 	{
 		*head = new;
 		return (new);
-	} else
-	{
-		hold = *head;
-		while (hold->next != NULL)
-			hold = hold->next;
-		hold->next = new;
-		return (new);
 	}
+	hold = *head;
+	while (hold->next != NULL)
+		hold = hold->next;
+	hold->next = new;
+	return (new);
 }
