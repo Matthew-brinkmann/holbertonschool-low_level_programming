@@ -3,7 +3,7 @@
 
 /**
  * get_nodeint_at_index - finds a element at a certain index.
- * @h: the list to print
+ * @head: the list to print
  * @index: the element to return
  * Description: long description
  *
