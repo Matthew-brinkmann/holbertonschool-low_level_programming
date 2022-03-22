@@ -3,7 +3,7 @@
 #include "lists.h"
 
 /**
- * get_nodeint_at_index - finds a element at a certain index.
+ * insert_nodeint_at_index - finds a element at a certain index.
  * @head: the list to search
  * @idx: the number we want to insert a new ele at.
  * @n: the data to insert into the new list element.
@@ -17,7 +17,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	listint_t *new = NULL;
 	listint_t *hold = NULL;
 
-	if (*head == NULL)
+	if (head == NULL || *head == NULL)
 		return (NULL);
 	hold = *head;
 	if (idx != 0)
