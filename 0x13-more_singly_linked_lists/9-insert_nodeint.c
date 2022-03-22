@@ -7,7 +7,9 @@
  * @head: the list to search
  * @idx: the number we want to insert a new ele at.
  * @n: the data to insert into the new list element.
- * Description: long description
+ * Description: future Note for self: Create copy and move through
+ * copy as if you move through head (or *head) it can remove earlier
+ * elements in list.
  *
  * Return: the address of new node or NULL if failed.
  */
