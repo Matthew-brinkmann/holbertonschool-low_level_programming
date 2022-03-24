@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "main.h"
 /**
- * get_bit - will chage binary rep of decimal number at certain bit
+ * set_bit - will chage binary rep of decimal number at certain bit
  * @n: the number to change bit rep
  * @index: the index of bit we want to change
  * Description: long description
