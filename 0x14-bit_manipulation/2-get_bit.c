@@ -6,7 +6,7 @@
  * @index: th eindex of bit we want to print
  * Description: long description
  *
- * Return: nothing
+ * Return: stored number or -1 if search for bigget than can search for.
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
@@ -18,5 +18,5 @@ int get_bit(unsigned long int n, unsigned int index)
 	storedBit = n >> index;
 	storedBit = storedBit & 1;
 
-	return(storedBit);
+	return (storedBit);
 }
