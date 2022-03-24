@@ -3,7 +3,7 @@
 /**
  * flip_bits - number of bits to change to get one number to = another
  * @n: 1st number
- * @index: 2nd number
+ * @m: 2nd number
  * Description: long description
  *
  * Return: number of flips needed
