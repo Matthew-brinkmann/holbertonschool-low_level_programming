@@ -21,7 +21,7 @@ int fd_closer(int fileDesc)
 	if (err < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fileDesc);
-		return (-1);
+		exit(100);
 	}
 	return (1);
 }
@@ -45,18 +45,12 @@ void read_file_error(int fromFile, int tooFile, char *file)
 
 /**
  * write_file_error - displays error if write file error.
- * @fromFile: file descriptor for file to be closed
- * @tooFile: file rescriptor for file to be closed
  * @file: the file name that couldn't be read from.
  * Return: void
  */
-void write_file_error(int fromFile, int tooFile, char *file)
+void write_file_error(char *file)
 {
 	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
-	if (fromFile >= 0)
-		fd_closer(fromFile);
-	if (tooFile >= 0)
-		fd_closer(tooFile);
 	exit(99);
 }
 
@@ -97,7 +91,7 @@ int main(int argc, char *argv[])
 	if (tooFile < 0)
 	{
 		fd_closer(fromFile);
-		write_file_error(fromFile, tooFile, argv[2]);
+		write_file_error(argv[2]);
 	}
 	while (fromFileRead != 0)
 	{
@@ -108,7 +102,7 @@ int main(int argc, char *argv[])
 			break;
 		tooFileWrite = write(tooFile, buff, fromFileRead);
 		if (tooFileWrite < 0)
-			write_file_error(fromFile, tooFile, argv[2]);
+			write_file_error(argv[2]);
 	}
 	if (fd_closer(fromFile) == -1)
 	{
