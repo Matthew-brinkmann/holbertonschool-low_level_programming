@@ -65,7 +65,7 @@ void write_file_error(int fromFile, int tooFile, char *file)
  * @args: the total number of arguments
  * Return: void
  */
-void arg_test(int args);
+void arg_test(int args)
 {
 	if (args != 3)
 	{
