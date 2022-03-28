@@ -79,37 +79,37 @@ void arg_test(int args)
 int main(int argc, char *argv[])
 {
 	char buff[1024];
-	int fromFile = -1, tooFile = -1;
+	int fd_fromFile = -1, fd_tooFile = -1;
 	int fromFileRead = 1, tooFileWrite = 0;
 
 	arg_test(argc);
-	fromFile = open(argv[1], O_RDONLY);
-	if (fromFile < 0)
-		read_file_error(fromFile, tooFile, argv[1]);
+	fd_fromFile = open(argv[1], O_RDONLY);
+	if (fd_fromFile < 0)
+		read_file_error(fd_fromFile, fd_tooFile, argv[1]);
 
-	tooFile = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (tooFile < 0)
+	fd_tooFile = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (fd_tooFile < 0)
 	{
-		fd_closer(fromFile);
+		fd_closer(fd_fromFile);
 		write_file_error(argv[2]);
 	}
 	while (fromFileRead != 0)
 	{
-		fromFileRead = read(fromFile, buff, 1024);
+		fromFileRead = read(fd_fromFile, buff, 1024);
 		if (fromFileRead < 0)
-			read_file_error(fromFile, tooFile, argv[1]);
+			read_file_error(fd_fromFile, fd_tooFile, argv[1]);
 		else if (fromFileRead == 0)
 			break;
-		tooFileWrite = write(tooFile, buff, fromFileRead);
+		tooFileWrite = write(fd_tooFile, buff, fromFileRead);
 		if (tooFileWrite < 0)
 			write_file_error(argv[2]);
 	}
-	if (fd_closer(fromFile) == -1)
+	if (fd_closer(fd_fromFile) == -1)
 	{
-		fd_closer(tooFile);
+		fd_closer(fd_tooFile);
 		exit(100);
 	}
-	if (fd_closer(tooFile) == -1)
+	if (fd_closer(fd_tooFile) == -1)
 		exit(100);
 	return (0);
 }
