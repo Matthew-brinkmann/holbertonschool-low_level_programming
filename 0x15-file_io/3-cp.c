@@ -85,7 +85,7 @@ void arg_test(int args)
 int main(int argc, char *argv[])
 {
 	char buff[1024];
-	int fromFile = -1, tooFile = -1, isError = 1;
+	int fromFile = -1, tooFile = -1;
 	int fromFileRead = 1, tooFileWrite = 0, totalB = 0;
 
 	arg_test(argc);
@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
 	if (fromFile < 0)
 		read_file_error(fromFile, tooFile, argv[1]);
 
-	tooFile = open(argv[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
+	tooFile = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (tooFile < 0)
 	{
 		fd_closer(fromFile);
@@ -111,14 +111,12 @@ int main(int argc, char *argv[])
 		if (tooFileWrite < 0)
 			write_file_error(fromFile, tooFile, argv[1]);
 	}
-	isError = fd_closer(fromFile);
-	if (isError == -1)
+	if (fd_closer(fromFile) == -1)
 	{
 		fd_closer(tooFile);
 		exit(100);
 	}
-	isError = fd_closer(tooFile);
-	if (isError == -1)
+	if (fd_closer(tooFile) == -1)
 		exit(100);
 
 	return (0);
