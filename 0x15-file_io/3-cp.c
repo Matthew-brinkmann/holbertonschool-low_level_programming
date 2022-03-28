@@ -119,5 +119,5 @@ int main(int argc, char *argv[])
 	if (fd_closer(tooFile) == -1)
 		exit(100);
 
-	return (totalB);
+	return (0);
 }
