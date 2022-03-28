@@ -61,6 +61,20 @@ void write_file_error(int fromFile, int tooFile, char *file)
 }
 
 /**
+ * arg_test - test number of arguments
+ * @args: the total number of arguments
+ * Return: void
+ */
+void arg_test(int args);
+{
+	if (args != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+}
+
+/**
  * main - copies from 1 file to another
  * @argc: the number of arguments passed into function
  * @argv: the array containing the arguments
@@ -74,12 +88,7 @@ int main(int argc, char *argv[])
 	int fromFile = -1, tooFile = -1, isError = 1;
 	int fromFileRead = 1, tooFileWrite = 0, totalB = 0;
 
-	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
-
+	arg_test(argc);
 	fromFile = open(argv[1], O_RDONLY);
 	if (fromFile < 0)
 		read_file_error(fromFile, tooFile, argv[1]);
