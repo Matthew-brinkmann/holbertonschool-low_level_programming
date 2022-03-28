@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
 	if (tooFile < 0)
 	{
 		fd_closer(fromFile);
-		write_file_error(fromFile, tooFile, argv[1]);
+		write_file_error(fromFile, tooFile, argv[2]);
 	}
 	while (fromFileRead != 0)
 	{
@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
 		totalB = totalB + fromFileRead;
 		tooFileWrite = write(tooFile, buff, fromFileRead);
 		if (tooFileWrite < 0)
-			write_file_error(fromFile, tooFile, argv[1]);
+			write_file_error(fromFile, tooFile, argv[2]);
 	}
 	if (fd_closer(fromFile) == -1)
 	{
