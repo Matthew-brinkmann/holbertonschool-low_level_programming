@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
 	if (fromFile < 0)
 		read_file_error(fromFile, tooFile, argv[1]);
 
-	tooFile = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
+	tooFile = open(argv[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
 	if (tooFile < 0)
 	{
 		fd_closer(fromFile);
