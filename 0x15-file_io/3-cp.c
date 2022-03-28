@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
 {
 	char buff[1024];
 	int fromFile = -1, tooFile = -1;
-	int fromFileRead = 1, tooFileWrite = 0, totalB = 0;
+	int fromFileRead = 1, tooFileWrite = 0;
 
 	arg_test(argc);
 	fromFile = open(argv[1], O_RDONLY);
@@ -106,7 +106,6 @@ int main(int argc, char *argv[])
 			read_file_error(fromFile, tooFile, argv[1]);
 		else if (fromFileRead == 0)
 			break;
-		totalB = totalB + fromFileRead;
 		tooFileWrite = write(tooFile, buff, fromFileRead);
 		if (tooFileWrite < 0)
 			write_file_error(fromFile, tooFile, argv[2]);
@@ -118,6 +117,5 @@ int main(int argc, char *argv[])
 	}
 	if (fd_closer(tooFile) == -1)
 		exit(100);
-
 	return (0);
 }
