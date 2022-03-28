@@ -86,7 +86,10 @@ int main(int argc, char *argv[])
 
 	tooFile = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	if (tooFile < 0)
+	{
+		fd_closer(fromFile);
 		write_file_error(fromFile, tooFile, argv[1]);
+	}
 	while (fromFileRead != 0)
 	{
 		fromFileRead = read(fromFile, buff, 1024);
@@ -101,7 +104,10 @@ int main(int argc, char *argv[])
 	}
 	isError = fd_closer(fromFile);
 	if (isError == -1)
+	{
+		fd_closer(tooFile);
 		exit(100);
+	}
 	isError = fd_closer(tooFile);
 	if (isError == -1)
 		exit(100);
