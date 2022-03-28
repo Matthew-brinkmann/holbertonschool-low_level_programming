@@ -11,9 +11,9 @@
  * fd_closer - closes a file and exits/prints error if close encounters error
  * @fileDesc: file descriptor for file to be closed
  *
- * Return: void
+ * Return: 1 if success or -1 if error.
  */
-void fd_closer(int fileDesc)
+int fd_closer(int fileDesc)
 {
 	int err;
 
@@ -21,18 +21,19 @@ void fd_closer(int fileDesc)
 	if (err < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fileDesc);
-		exit(100);
+		return (-1);
 	}
+	return (1);
 }
 
 /**
- * read_file_error - closes a file and exits/prints error if close encounters error
+ * read_file_error - displays error if read file error
  * @fromFile: file descriptor for file to be closed
  * @tooFile: file rescriptor for file to be closed
  * @file: the file name that couldn't be read from.
  * Return: void
  */
-void read_file_error(int fromFile, int tooFile, char* file)
+void read_file_error(int fromFile, int tooFile, char *file)
 {
 	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
 	if (fromFile >= 0)
@@ -43,13 +44,13 @@ void read_file_error(int fromFile, int tooFile, char* file)
 }
 
 /**
- * write_file_error - closes a file and exits/prints error if close encounters error
+ * write_file_error - displays error if write file error.
  * @fromFile: file descriptor for file to be closed
  * @tooFile: file rescriptor for file to be closed
  * @file: the file name that couldn't be read from.
  * Return: void
  */
-void write_file_error(int fromFile, int tooFile, char* file)
+void write_file_error(int fromFile, int tooFile, char *file)
 {
 	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
 	if (fromFile >= 0)
@@ -70,7 +71,7 @@ void write_file_error(int fromFile, int tooFile, char* file)
 int main(int argc, char *argv[])
 {
 	char buff[1024];
-	int fromFile = -1, tooFile = -1;
+	int fromFile = -1, tooFile = -1, isError = 1;
 	int fromFileRead = 1, tooFileWrite = 0, totalB = 0;
 
 	if (argc != 3)
@@ -98,8 +99,12 @@ int main(int argc, char *argv[])
 		if (tooFileWrite < 0)
 			write_file_error(fromFile, tooFile, argv[1]);
 	}
-	fd_closer(fromFile);
-	fd_closer(tooFile);
+	isError = fd_closer(fromFile);
+	if (isError == -1)
+		exit(100);
+	isError = fd_closer(tooFile);
+	if (isError == -1)
+		exit(100);
 
 	return (0);
 }
