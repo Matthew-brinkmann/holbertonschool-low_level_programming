@@ -36,38 +36,42 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	dlistint_t *new, *oldIdx;
 	unsigned int count = 0;
 
-	if (h == NULL || *h == NULL)
-		return (NULL);
-
 	new = create_node_idx(n);
 	if (new == NULL)
 		return (NULL);
-
-	oldIdx = *h;
-	for (; idx != count && oldIdx->next != NULL; count++)
-		oldIdx = oldIdx->next;
-	if (oldIdx->next != NULL)
-		new->prev = oldIdx->prev;
-	else
-		new->prev = oldIdx;
-	if (idx == count)
-	{
-		if (oldIdx->prev != NULL)
-			oldIdx->prev->next = new;
-		else
-			*h = new;
-		oldIdx->prev = new;
-		new->next = oldIdx;
-	}
-	else if (idx == count + 1)
-	{
-		oldIdx->next = new;
-		new->prev = oldIdx;
-	}
-	else
-	{
-		free(new);
+	if (h == NULL)
 		return (NULL);
+	if ((*h) == NULL)
+		*h = new;
+	else
+	{
+		oldIdx = *h;
+		for (; idx != count && oldIdx->next != NULL; count++)
+			oldIdx = oldIdx->next;
+		if (oldIdx->next != NULL)
+			new->prev = oldIdx->prev;
+		else
+			new->prev = oldIdx;
+		if (idx == count)
+		{
+			if (oldIdx->prev != NULL)
+				oldIdx->prev->next = new;
+			else
+				*h = new;
+			oldIdx->prev = new;
+			new->next = oldIdx;
+		}
+		else if (idx == count + 1)
+		{
+			oldIdx->next = new;
+			new->prev = oldIdx;
+
+		}
+		else
+		{
+			free(new);
+			return (NULL);
+		}
 	}
 	return (new);
 }
