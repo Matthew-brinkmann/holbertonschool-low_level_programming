@@ -32,6 +32,21 @@ int coll(unsigned long int idx, hash_table_t *ht, hash_node_t *new, char *kCpy)
 	return (0);
 }
 /**
+ * set_node - creates a node to insert into hash table
+ * @key: the key
+ * @value: the value to store in the key
+ * @node: the node to set
+ * Description: long description
+ *
+ * Return: node
+ */
+void set_node(char *key, char *value, hash_node_t *node)
+{
+	node->key = key;
+	node->value = value;
+	node->next = NULL;
+}
+/**
  * hash_table_set - add element to hash table
  * @key: the key
  * @ht: the hash table to manipulate
@@ -66,9 +81,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(keyCpy);
 		return (0);
 	}
-	newNode->key = keyCpy;
-	newNode->value = valCpy;
-	newNode->next = NULL;
+	set_node(keyCpy, valCpy, newNode);
 	index = key_index((unsigned char *)key, ht->size);
 	if ((ht->array)[index] != NULL)
 	{
