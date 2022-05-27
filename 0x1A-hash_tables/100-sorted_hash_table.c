@@ -109,6 +109,8 @@ shash_table_t *shash_table_create(unsigned long int size)
 	if (new == NULL)
 		return (NULL);
 	new->size = size;
+	new->shead = NULL;
+	new->stail = NULL;
 	new->array = malloc(sizeof(new->array) * size);
 	if (new->array == NULL)
 	{
@@ -117,13 +119,11 @@ shash_table_t *shash_table_create(unsigned long int size)
 	}
 	for (; i < size; i++)
 		(new->array)[i] = NULL;
-	new->shead = NULL;
-	new->stail = NULL;
 	return (new);
 }
 
 /**
- * hash_table_set - add element to hash table
+ * shash_table_set - add element to hash table
  * @key: the key
  * @ht: the hash table to manipulate
  * @value: the value to store in the key
@@ -137,7 +137,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	char *valCpy = NULL, *keyCpy = NULL;
 	shash_node_t *newNode = NULL;
 
-	if (key == NULL || ht == NULL || strlen(key) == 0)
+	if (key == NULL || ht == NULL || strlen(key) == 0 ||
+		ht->array == NULL)
 		return (0);
 	valCpy = strdup(value);
 	if (valCpy == NULL)
@@ -230,7 +231,7 @@ void shash_table_print(const shash_table_t *ht)
 	while (search != NULL)
 	{
 		printf("%s'%s': '%s'", sep, search->key, search->value);
-		sep = " ,";
+		sep = ", ";
 		search = search->snext;
 	}
 	printf("}\n");
