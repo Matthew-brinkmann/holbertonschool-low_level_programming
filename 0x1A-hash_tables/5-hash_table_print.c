@@ -35,6 +35,9 @@ void hash_table_print(const hash_table_t *ht)
 	unsigned long int i = 0;
 	hash_node_t *search;
 
+	if (ht == NULL)
+		return;
+
 	printf("{");
 	if (ht != NULL)
 	{
