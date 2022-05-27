@@ -8,6 +8,7 @@
  * @idx: the index to insert node at
  * @ht: the hash table to manipulate
  * @new: the node to insert
+ * @kCpy: the key to compare
  * Description: long description
  *
  * Return: 0 if key already exisits, 1 if new key
@@ -49,7 +50,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	if (strlen(key) == 0)
 		return (0);
-
 	valCpy = strdup(value);
 	if (valCpy == NULL)
 		return (0);
@@ -57,14 +57,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (keyCpy == NULL)
 	{
 		free(valCpy);
-		return(0);
+		return (0);
 	}
 	newNode = malloc(sizeof(*newNode));
 	if (newNode == NULL)
 	{
 		free(valCpy);
 		free(keyCpy);
-		return(0);
+		return (0);
 	}
 	newNode->key = keyCpy;
 	newNode->value = valCpy;
