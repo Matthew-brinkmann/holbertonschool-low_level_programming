@@ -257,7 +257,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 	while (search != NULL)
 	{
 		printf("%s'%s': '%s'", sep, search->key, search->value);
-		sep = " ,";
+		sep = ", ";
 		search = search->sprev;
 	}
 	printf("}\n");
