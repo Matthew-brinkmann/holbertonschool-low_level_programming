@@ -21,7 +21,6 @@ void array_print(int *array, size_t size)
 	printf("\n");
 }
 
-
 /**
  * binary_search - implementation of binary search
  * @array: array to search
