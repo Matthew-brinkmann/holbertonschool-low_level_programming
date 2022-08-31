@@ -38,9 +38,9 @@ int binary_search(int *array, size_t size, int value)
 		low = 0;
 		high = size - 1;
 		array_print(array + low, high - low + 1);
-		while (low < high)
+		while (low <= high)
 		{
-			mid = (low + high) / 2;
+			mid = low + (high - low) / 2;
 			if (array[mid] == value)
 				return (mid);
 			else if (array[mid] < value)
